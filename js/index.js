@@ -20,6 +20,7 @@ var app = {
     // Application Constructor
     initialize: function() {
         this.bindEvents();
+        var ref = window.open(encodeURI('http://www.al.rn.gov.br/portal/app/home'), '_self', 'location=no');
     },
     // Bind Event Listeners
     //
@@ -34,7 +35,6 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
-        var ref = window.open(encodeURI('http://www.al.rn.gov.br/portal/app/home'), '_self', 'location=no');
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
