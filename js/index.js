@@ -38,13 +38,18 @@ var app = {
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
-
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
-
         console.log('Received Event: ' + id);
+    },
+    onOffLine: function(){
+        navigator.notification.vibrate(100);
+        navigator.notification.alert("Você está sem conexão com internet",closeApp,"Alerta",'OK!');
+    },
+    closeApp: function(){
+        if (navigator.app) {
+            navigator.app.exitApp();
+        }else if (navigator.device) {
+            navigator.device.exitApp();
+        }
     }
+
 };
